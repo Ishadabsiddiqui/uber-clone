@@ -7,6 +7,10 @@ module.exports.authUser = async (req, res, next) => {
   if (!token) {
     return res.status(401).json({ message: "You are not authenticated." });
   }
+  const isBlacklisted = await userModel.findOne({ token: token });
+  if (isBlacklisted) {
+    return res.status(401).json({ message: "You are not authenticated." });
+  }
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const user = await userModel.findById(decoded._id);
