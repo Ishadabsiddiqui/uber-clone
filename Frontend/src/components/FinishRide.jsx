@@ -1,25 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const RidePopUp = (props) => {
+const FinishRide = (props) => {
   return (
     <div>
       <h5
         onClick={() => {
-          props.setRidePopupPanel(false);
+          props.setFinishRidePanel(false);
         }}
         className="p-1 text-center absolute top-0 w-[93%]"
       >
         <i className="text-3xl text-gray-200 ri-arrow-down-wide-line"></i>
       </h5>
-      <h3 className="text-2xl font-semibold mb-5">New Rides available!</h3>
-      <div className="flex items-center justify-between mt-4 p-3 bg-gray-300 rounded-lg">
+      <h3 className="text-2xl font-semibold mb-5">Finish this Rides</h3>
+      <div className="flex items-center justify-between mt-4 p-4 border-2 border-yellow-400 rounded-lg">
         <div className="flex items-center gap-3">
           <img
             className="h-10 w-10 rounded-full object-cover"
             src="https://i.pinimg.com/236x/af/26/28/af26280b0ca305be47df0b799ed1b12b.jpg"
             alt=""
           />
-          <h2 className="text-lg font-medium">Harsha Patel</h2>
+          <h2 className="text-lg font-medium">Harshi Patel</h2>
         </div>
         <h5 className="text-lg font-semibold">2.2 km</h5>
       </div>
@@ -49,27 +50,17 @@ const RidePopUp = (props) => {
             </div>
           </div>
         </div>
-        <div className="flex  mt-5 w-full items-center justify-between">
-          <button
-            onClick={() => {
-              props.setRidePopupPanel(false);
-            }}
-            className=" mt-1 bg-gray-300 text-gray-700 font-semibold p-3 px-10 rounded-lg"
+        <div className="mt-10 w-full">
+          <Link
+            to="/captain-home"
+            className="w-full flex justify-center text-lg mt-5 bg-green-600 text-white font-semibold p-3 rounded-lg"
           >
-            Ignore
-          </button>
-          <button
-            onClick={() => {
-              props.setConfirmRidePopupPanel(true);
-            }}
-            className=" bg-green-600 text-white font-semibold p-3 px-10 rounded-lg"
-          >
-            Accept
-          </button>
+            Finish Rides
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default RidePopUp;
+export default FinishRide;
